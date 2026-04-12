@@ -8,7 +8,15 @@ utils.limpar_terminal()
 def adicionar_tareda(tarefas, nome_tarefa):
     tarefa = {"tarefa": nome_tarefa, "completada": False}
     tarefas.append(tarefa)
-    print(f"Tarefa {nome_tarefa} foi adicionada com sucesso!")
+    print(f"Tarefa: \"{nome_tarefa}\", foi adicionada com sucesso!")
+    return
+
+def ver_tarefas(tarefas):
+    print("\nLista de tarefas a fazer: ")
+    for indice, tarefa in enumerate(tarefas, start=1):
+        status = "✔️" if tarefa["completada"] else " "
+        nome_tarefa = tarefa["tarefa"]
+        print(f"{indice}. [{status}] {nome_tarefa}")
     return
 
 tarefas = []
@@ -25,9 +33,13 @@ while True:
     escolha = int(input("Digite a sua escolha: "))
 
     if escolha == 1:
-
+        utils.limpar_terminal()
         nome_tarefa = input("Digite o nome da tarefa: ")
         adicionar_tareda(tarefas, nome_tarefa)
+
+    elif escolha == 2:
+        utils.limpar_terminal()
+        ver_tarefas(tarefas)
 
     elif escolha == 6:
         break

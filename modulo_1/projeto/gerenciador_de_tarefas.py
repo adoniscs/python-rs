@@ -5,6 +5,13 @@ sys.path.append(os.path.abspath("../../"))
 import utils
 utils.limpar_terminal()
 
+def adicionar_tareda(tarefas, nome_tarefa):
+    tarefa = {"tarefa": nome_tarefa, "completada": False}
+    tarefas.append(tarefa)
+    print(f"Tarefa {nome_tarefa} foi adicionada com sucesso!")
+    return
+
+tarefas = []
 
 while True:
     print("\nMenu do gerenciador de Lista de Tarefas")
@@ -17,9 +24,13 @@ while True:
 
     escolha = int(input("Digite a sua escolha: "))
 
-    if escolha == 6:
+    if escolha == 1:
+
+        nome_tarefa = input("Digite o nome da tarefa: ")
+        adicionar_tareda(tarefas, nome_tarefa)
+
+    elif escolha == 6:
         break
 
-    utils.limpar_terminal()
 
 print("Programa finalizado")

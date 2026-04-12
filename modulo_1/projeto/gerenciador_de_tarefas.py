@@ -19,6 +19,19 @@ def ver_tarefas(tarefas):
         print(f"{indice}. [{status}] {nome_tarefa}")
     return
 
+def atualizar_nome_tarefa(tarefas, indice_tarefa, novo_nome_tarefa):
+    """tratado esse indice pois no enumerate informo que indice inicia em 1
+    e a lista por padrão inicia em 0. Então preciso subtrair 1 para que
+    o número da lista de tarefa informado seja igual ao número do indice da lista que será atualizado"""
+    indice_tarefa_ajustado = indice_tarefa - 1
+
+    if indice_tarefa_ajustado >= 0 and indice_tarefa_ajustado < len(tarefas):
+        tarefas[indice_tarefa_ajustado]["tarefa"] = novo_nome_tarefa
+        print(f"Tarefa: \"{indice_tarefa}\" atualizada para \"{novo_nome_tarefa}\".")
+    else:
+        print("Número de tarefa inválido. Tente novamente!")
+    return
+
 tarefas = []
 
 while True:
@@ -40,6 +53,13 @@ while True:
     elif escolha == 2:
         utils.limpar_terminal()
         ver_tarefas(tarefas)
+    
+    elif escolha == 3:
+        utils.limpar_terminal()
+        ver_tarefas(tarefas)
+        indice_tarefa = int(input("Digite o número da tarefa que deseja atualizar: "))
+        novo_nome = input("Digite o novo nome da tarefa: ")
+        atualizar_nome_tarefa(tarefas, indice_tarefa, novo_nome)
 
     elif escolha == 6:
         break

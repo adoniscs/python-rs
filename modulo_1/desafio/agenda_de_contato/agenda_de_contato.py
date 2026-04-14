@@ -15,7 +15,7 @@ def visualizar_contatos(contatos):
         telefone = contato["telefone"]
         email = contato["email"]
         favorito = "❤️" if contato["favorito"] else " "
-        print(f"{indice}. [{favorito}], {nome}, {telefone}, {email}")
+        print(f"{indice}. [{favorito} ], {nome}, {telefone}, {email}")
     return
 
 def editar_contato(contatos, indice, novo_nome, novo_telefone, novo_email):
@@ -28,6 +28,12 @@ def editar_contato(contatos, indice, novo_nome, novo_telefone, novo_email):
         print(f"Contato {indice} atualizado. {contatos[indice_ajustado]}")
     else:
         print("Indíce inválido. Tente novamente.")
+    return
+
+def favoritar_contato(contato, indice):
+    indice_ajustado = indice - 1
+    contato[indice_ajustado]["favorito"] = True
+    print(f"Contato {indice} atualizado para favorito.")
     return
 
 lista_de_contatos = []
@@ -73,5 +79,13 @@ while True:
                 print(f"Contato {indice} atualiza com sucesso!")
 
     elif opcao == 5:
-        print("Programa finalizado. Até mais!")
-        break
+        if not lista_de_contatos:
+            print("Agenda Vazia. Adicione um novo contato.")
+        else:
+            visualizar_contatos(lista_de_contatos)
+            indice = int(input("Informe o indice que deseja atualizar: "))
+            
+            if indice < 1 or indice > len(lista_de_contatos):
+                print("Indice inválido. Tente novamente.")
+            else:
+                favoritar_contato(lista_de_contatos, indice)

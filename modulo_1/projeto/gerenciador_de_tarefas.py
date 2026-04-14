@@ -1,9 +1,5 @@
-import os
-import sys
-
-sys.path.append(os.path.abspath("../../"))
-import utils
-utils.limpar_terminal()
+from limpa_terminal.utils import limpar_terminal
+limpar_terminal()
 
 def adicionar_tareda(tarefas, nome_tarefa):
     tarefa = {"tarefa": nome_tarefa, "completada": False}
@@ -33,7 +29,7 @@ def atualizar_nome_tarefa(tarefas, indice_tarefa, novo_nome_tarefa):
     return
 
 def completar_tarefa(tarefas, indice_tarefa):
-    utils.limpar_terminal()
+    limpar_terminal()
     indice_tarefa_ajustado = indice_tarefa - 1 # criar uma função para esta linha pois se repete
     tarefas[indice_tarefa_ajustado]["completada"] = True
     print(f"Tarefa {indice_tarefa} concluída com sucesso.")
@@ -62,16 +58,16 @@ while True:
     escolha = int(input("Digite a sua escolha: "))
 
     if escolha == 1:
-        utils.limpar_terminal()
+        limpar_terminal()
         nome_tarefa = input("Digite o nome da tarefa: ")
         adicionar_tareda(tarefas, nome_tarefa)
 
     elif escolha == 2:
-        utils.limpar_terminal()
+        limpar_terminal()
         ver_tarefas(tarefas)
     
     elif escolha == 3:
-        utils.limpar_terminal()
+        limpar_terminal()
         ver_tarefas(tarefas)
         indice_tarefa = int(input("Digite o número da tarefa que deseja atualizar: "))
         novo_nome = input("Digite o novo nome da tarefa: ")
@@ -88,6 +84,5 @@ while True:
 
     elif escolha == 6:
         break
-
 
 print("Programa finalizado")

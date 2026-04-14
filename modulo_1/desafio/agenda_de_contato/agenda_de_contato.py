@@ -1,29 +1,17 @@
-def adicionar_contato(lista_de_contatos, nome, telefone, email):
+def adicionar_contato(contatos, nome, telefone, email):
     # contato: Barbearia
     # nome: Luiz Felipe
     # telefone: 11944332222
     # email: luizf@email.com
     contato = {
-        "contato": lista_contatos,
         "nome_completo": nome,
         "telefone": telefone,
         "email": email,
+        "favorito": False
     }
-    lista_de_contatos.append(contato)
+    contatos.append(contato)
     print("Contato adicionado com sucesso!")
     return
-
-
-def listar_contatos(lista_de_contatos):
-    print("\nLista de todos os contatos")
-    for indice, contato in enumerate(lista_de_contatos, start=1):
-        contato_favorito = "❤️" if lista_de_contatos["favorito"] else " "
-        nome_contato = contato["nome"]
-        numero = contato["numero"]
-        email = contato["email"]
-        print(f"{indice}. [{contato_favorito}] {nome_contato}, {numero}, {email} ")
-    return
-
 
 lista_de_contatos = []
 
@@ -37,14 +25,13 @@ while True:
     opcao = int(input("Informe uma opção desejada: "))
 
     if opcao == 1:
-        nome_completo = input("Informe o come completo: ")
+        nome_completo = input("Informe o nome completo: ")
         telefone = int(input("Informe um número de telefone: "))
         email = input("Informe um endereço de email: ")
         adicionar_contato(lista_de_contatos, nome_completo, telefone, email)
-        print("Adicionar contato")
+        print(f'Contato de "{nome_completo}", com o telefone "{telefone}" e email "{email}" adicionado com sucesso.')
 
     elif opcao == 2:
-        listar_contatos(lista_de_contatos)
         print("Editar um contato ")
 
     elif opcao == 3:

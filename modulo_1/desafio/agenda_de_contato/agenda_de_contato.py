@@ -36,6 +36,23 @@ def favoritar_contato(contato, indice):
     print(f"Contato {indice} atualizado para favorito.")
     return
 
+def visualizar_contatos_favoritos(contatos):
+    # forma abrevida de percorrer a lista de contatos e armazenas
+    # apenas os favoritos - List Comprehension (lista comprimida)
+    contatos_favoritos = [contato for contato in contatos if contato["favorito"]]
+    
+    if not contatos_favoritos:
+        print("Nenhum contato favorito na agenda.")
+    else:
+        print("\nContatos favoritos:")
+
+        for indice, contato in enumerate(contatos_favoritos, start=1):
+            nome = contato["nome"]
+            telefone = contato["telefone"]
+            email = contato["email"]        
+            print(f"{indice}. {nome}, {telefone}, {email}")
+    return
+
 lista_de_contatos = []
 
 while True:
@@ -92,7 +109,10 @@ while True:
                 favoritar_contato(lista_de_contatos, indice)
 
     elif opcao == 5:
-        print("")
+        if not lista_de_contatos:
+            print("Agenda Vazia. Adicione um novo contato.")
+        else:
+            visualizar_contatos_favoritos(lista_de_contatos)
     
     elif opcao == 6:
         print("")

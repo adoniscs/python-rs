@@ -42,9 +42,10 @@ while True:
     print("1. Adicionar um contato")
     print("2. Listar todos os contatos")
     print("3. Editar um contato")
-    print("4. Deletar um contato")
-    print("5. Favoritar um contato")
-    print("6. Sair")
+    print("4. Favoritar um contato")
+    print("5. Visualizar contato favoritos")
+    print("6. Deletar um contato")
+    print("7. Sair")
 
     opcao = int(input("Informe uma opção desejada: "))
 
@@ -78,7 +79,7 @@ while True:
                 editar_contato(lista_de_contatos, indice, nome, telefone, email)
                 print(f"Contato {indice} atualiza com sucesso!")
 
-    elif opcao == 5:
+    elif opcao == 4:
         if not lista_de_contatos:
             print("Agenda Vazia. Adicione um novo contato.")
         else:

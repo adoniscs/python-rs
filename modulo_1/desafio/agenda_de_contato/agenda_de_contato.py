@@ -4,10 +4,10 @@ def adicionar_contato(lista_de_contatos, nome, telefone, email):
     # telefone: 11944332222
     # email: luizf@email.com
     contato = {
+        "contato": lista_contatos,
         "nome_completo": nome,
         "telefone": telefone,
         "email": email,
-        "favorito": False,
     }
     lista_de_contatos.append(contato)
     print("Contato adicionado com sucesso!")

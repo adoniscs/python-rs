@@ -1,16 +1,21 @@
 def adicionar_contato(contatos, nome, telefone, email):
-    # contato: Barbearia
-    # nome: Luiz Felipe
-    # telefone: 11944332222
-    # email: luizf@email.com
     contato = {
-        "nome_completo": nome,
+        "nome": nome,
         "telefone": telefone,
         "email": email,
         "favorito": False
     }
     contatos.append(contato)
     print("Contato adicionado com sucesso!")
+    return
+
+def visualizar_contatos(contatos):
+    for indice, contato in enumerate(contatos, start=1):
+        nome = contato["nome"]
+        telefone = contato["telefone"]
+        email = contato["email"]
+        favorito = "❤️" if contato["favorito"] else " "
+        print(f"{indice}. [{favorito}], {nome}, {telefone}, {email}\n")
     return
 
 lista_de_contatos = []
@@ -33,7 +38,11 @@ while True:
         print(f'Contato de "{nome_completo}", com o telefone "{telefone}" e email "{email}" adicionado com sucesso.')
 
     elif opcao == 2:
-        print("Editar um contato ")
+        if not len(lista_de_contatos):
+            print("\nLista de contato vazia. Adicione um novo contato a lista.")
+        else:
+            print("\nAgenda de contato:")
+            visualizar_contatos(lista_de_contatos)
 
     elif opcao == 3:
         print("Deletar um contato")

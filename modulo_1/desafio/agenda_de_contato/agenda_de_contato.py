@@ -1,11 +1,22 @@
-import os
-import sys
+def adicionar_contato(lista_contatos, nome, telefone, email):
+    # contato: Barbearia
+    # nome: Luiz Felipe
+    # telefone: 11944332222
+    # email: luizf@email.com
+    contato = {
+        "contato": lista_contatos,
+        "nome_completo": nome,
+        "telefone": telefone,
+        "email": email,
+    }
+    lista_contatos.append(contato)
+    print("Contato adicionado com sucesso!")
+    return
 
-sys.path.append(os.path.abspath("../"))
-import utils
+
+lista_contatos = []
 
 while True:
-    utils.limpar_terminal()
     print("1. Adicionar um contato")
     print("2. Editar um contato ")
     print("3. Deletar um contato")
@@ -15,6 +26,10 @@ while True:
     opcao = int(input("Informe uma opção desejada: "))
 
     if opcao == 1:
+        nome_completo = input("Informe o come completo: ")
+        telefone = int(input("Informe um número de telefone: "))
+        email = input("Informe um endereço de email: ")
+        adicionar_contato(lista_contatos, nome_completo, telefone, email)
         print("Adicionar contato")
 
     elif opcao == 2:

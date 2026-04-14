@@ -20,14 +20,13 @@ def visualizar_contatos(contatos):
 
 def editar_contato(contatos, indice, novo_nome, novo_telefone, novo_email):
     indice_ajustado = indice - 1
-
-    if indice_ajustado >= 0 and indice_ajustado < len(contatos):
+    if (indice_ajustado >= 0 and indice_ajustado < len(contatos)):
         contatos[indice_ajustado]["nome"] = novo_nome
         contatos[indice_ajustado]["telefone"] = novo_telefone
         contatos[indice_ajustado]["email"] = novo_email
-        print(f"Contato {indice_ajustado}")
+        print(f"Contato {indice} atualizado. {contatos[indice_ajustado]}")
     else:
-        print("")
+        print("Indíce inválido. Tente novamente.")
     return
 
 lista_de_contatos = []
@@ -57,13 +56,22 @@ while True:
             visualizar_contatos(lista_de_contatos)
 
     elif opcao == 3:
-        visualizar_contatos(lista_de_contatos)
-        indice = int(input("Informe o indice que deseja atualizar: "))
-        nome = input("Informe o nome atualizado: ")
-        telefone = int(input("Informe o novo telefone: "))
-        email = input("Informe o novo email: ")
-        editar_contato(lista_de_contatos, indice, nome, telefone, email)
-        print(f"Contato {indice} atualiza com sucesso!")
+        if not lista_de_contatos:
+            print("Agenda Vazia. Adicione um novo contato.")
+        else:
+            visualizar_contatos(lista_de_contatos)
+            indice = int(input("Informe o indice que deseja atualizar: "))
+        
+            if indice < 1 or indice > len(lista_de_contatos):
+                print("Indice inválido. Tente novamente.")
+            else:
+                nome = input("Informe o nome atualizado: ")
+                telefone = int(input("Informe o novo telefone: "))
+                email = input("Informe o novo email: ")
+                editar_contato(lista_de_contatos, indice, nome, telefone, email)
+                print(f"Contato {indice} atualiza com sucesso!")
+            
+            
 
     elif opcao == 5:
         print("Programa finalizado. Até mais!")

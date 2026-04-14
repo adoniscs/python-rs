@@ -17,10 +17,11 @@ lista_de_contatos = []
 
 while True:
     print("1. Adicionar um contato")
-    print("2. Editar um contato ")
-    print("3. Deletar um contato")
-    print("4. Favoritar um contato")
-    print("5. Sair")
+    print("2. Listar todos os contatos")
+    print("3. Editar um contato")
+    print("4. Deletar um contato")
+    print("5. Favoritar um contato")
+    print("6. Sair")
 
     opcao = int(input("Informe uma opção desejada: "))
 

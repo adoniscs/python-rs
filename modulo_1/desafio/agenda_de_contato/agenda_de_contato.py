@@ -90,3 +90,14 @@ while True:
                 print("Indice inválido. Tente novamente.")
             else:
                 favoritar_contato(lista_de_contatos, indice)
+
+    elif opcao == 5:
+        print("")
+    
+    elif opcao == 6:
+        print("")
+
+    elif opcao == 7:
+        break
+
+print("Programa finalizado. Até mais!")

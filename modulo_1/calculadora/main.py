@@ -1,9 +1,5 @@
-import sys
-import os
-
-sys.path.append(os.path.abspath("../../"))
-import utils
-utils.limpar_terminal()
+from limpa_terminal.utils import limpar_terminal
+limpar_terminal()
 
 from calculadora import divisao, multiplicacao, soma, subtracao
 

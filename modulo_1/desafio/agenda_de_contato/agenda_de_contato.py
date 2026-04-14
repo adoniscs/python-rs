@@ -1,3 +1,6 @@
+from limpa_terminal.utils import limpar_terminal
+limpar_terminal()
+
 def adicionar_contato(contatos, nome, telefone, email):
     contato = {
         "nome": nome,

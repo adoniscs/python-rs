@@ -20,7 +20,8 @@ def visualizar_contatos(contatos):
 
 def editar_contato(contatos, indice, novo_nome, novo_telefone, novo_email):
     indice_ajustado = indice - 1
-    if (indice_ajustado >= 0 and indice_ajustado < len(contatos)):
+
+    if indice_ajustado >= 0 and indice_ajustado < len(contatos):
         contatos[indice_ajustado]["nome"] = novo_nome
         contatos[indice_ajustado]["telefone"] = novo_telefone
         contatos[indice_ajustado]["email"] = novo_email
@@ -70,8 +71,6 @@ while True:
                 email = input("Informe o novo email: ")
                 editar_contato(lista_de_contatos, indice, nome, telefone, email)
                 print(f"Contato {indice} atualiza com sucesso!")
-            
-            
 
     elif opcao == 5:
         print("Programa finalizado. Até mais!")

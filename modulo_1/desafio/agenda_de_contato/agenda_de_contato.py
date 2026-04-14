@@ -53,6 +53,12 @@ def visualizar_contatos_favoritos(contatos):
             print(f"{indice}. {nome}, {telefone}, {email}")
     return
 
+def deletar_contato(contato, indice):
+    indice_ajustado = indice - 1
+    contato_removido = contato.pop(indice_ajustado)
+    print(f"O contato {contato_removido['nome']} foi deletado com sucesso.")
+    return
+
 lista_de_contatos = []
 
 while True:
@@ -115,7 +121,16 @@ while True:
             visualizar_contatos_favoritos(lista_de_contatos)
     
     elif opcao == 6:
-        print("")
+        if not lista_de_contatos:
+            print("Agenda vazia. Adicione um novo contato.")
+        else:
+            visualizar_contatos(lista_de_contatos)
+            indice = int(input("Informe o indice que deseja apagar da agenda: "))
+
+            if indice < 1 or indice > len(lista_de_contatos):
+                print("Índice inválido. Tente novamente.")
+            else:
+                deletar_contato(lista_de_contatos, indice)
 
     elif opcao == 7:
         break
